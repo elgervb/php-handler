@@ -48,11 +48,11 @@ class Handlers
 
     public static function get()
     {
-        if (self::$instance === null) {
-            self::$instance = new Handlers();
+        if (self::$INSTANCE === null) {
+            self::$INSTANCE = new Handlers();
         }
         
-        return self::$instance;
+        return self::$INSTANCE;
     }
 
     /**
