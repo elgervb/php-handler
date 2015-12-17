@@ -1,0 +1,35 @@
+{
+	"name" : "elgervb/php-handler",
+	"description" : "php-handler",
+	"type" : "library",
+	"authors" : [{
+			"name" : "Elger van Boxtel",
+			"email" : "elgervb@gmail.com",
+			"homepage" : "http://elgervanboxtel.nl",
+			"role" : "developer"
+		}
+	],
+	"keywords" : [
+		"php",
+		"handler",
+    "http:"
+	],
+	"homepage" : "https://github.com/elgervb/php-handler",
+	"license" : [
+		"MIT"
+	],
+	"require-dev" : {
+		"phpunit/phpunit" : "^4.8"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"http" : "src"
+		}
+	},
+	"support" : {
+		"wiki" : "https://github.com/elgervb/php-handler/wiki",
+		"source" : "https://github.com/elgervb/php-handler",
+		"issues" : "https://github.com/elgervb/php-handler/issues",
+		"email" : "elgervb@gmail.com"
+	}
+}
