@@ -19,7 +19,8 @@
 		"MIT"
 	],
 	"require" : {
-		"elgervb/php-http" : "master-dev"
+		"elgervb/php-http" : "master-dev",
+		"elgervb/php-view" : "master-dev"
 	},
 	"require-dev" : {
 		"phpunit/phpunit" : "^4.8"

@@ -36,6 +36,6 @@ class ViewHandler implements IHander
      */
     public function accept($object)
     {
-        return is_string($object) || (is_object($object) && is_subclass_of($object, '\view\IView'));
+        return is_string($object) || (is_object($object) && $object instanceof \view\IView);
     }
 }
