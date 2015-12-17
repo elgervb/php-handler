@@ -27,7 +27,7 @@
 	},
 	"autoload" : {
 		"psr-0" : {
-			"handler" : "src/handler"
+			"handler" : "src"
 		}
 	},
 	"support" : {
