@@ -28,9 +28,6 @@ class JsonHandler implements IHander
         /* @var $object \handler\json\Json */
         $result = null;
         
-        $response = HttpContext::get()->getResponse();
-        $response->setContentType(JsonUtils::CONTENT_TYPE);
-        
         $object = $object->getObject();
         if (is_object($object)) {
             if ($object instanceof \IteratorAggregate) {
@@ -50,8 +47,10 @@ class JsonHandler implements IHander
         }
         
         if ($result !== null) {
+            $response = HttpContext::get()->getResponse();
+            $response->setContentType(JsonUtils::CONTENT_TYPE);
             $response->getWriter()->write($result);
-            $responce->flush();
+            $response->flush();
         }
         
         return $result;
