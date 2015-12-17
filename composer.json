@@ -12,12 +12,15 @@
 	"keywords" : [
 		"php",
 		"handler",
-    "http:"
+		"http:"
 	],
 	"homepage" : "https://github.com/elgervb/php-handler",
 	"license" : [
 		"MIT"
 	],
+	"require" : {
+		"elgervb/php-http" : "master-dev"
+	},
 	"require-dev" : {
 		"phpunit/phpunit" : "^4.8"
 	},
