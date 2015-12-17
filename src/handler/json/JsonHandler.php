@@ -49,7 +49,7 @@ class JsonHandler implements IHander
         if ($result !== null) {
             $response = HttpContext::get()->getResponse();
             $response->setContentType(JsonUtils::CONTENT_TYPE);
-            $response->getWriter()->write($result);
+            $response->write($result);
             $response->flush();
         }
         
