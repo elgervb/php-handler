@@ -12,7 +12,7 @@
 	"keywords" : [
 		"php",
 		"handler",
-		"http:"
+		"http"
 	],
 	"homepage" : "https://github.com/elgervb/php-handler",
 	"license" : [
