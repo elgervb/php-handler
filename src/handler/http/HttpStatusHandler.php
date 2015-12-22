@@ -63,6 +63,7 @@ class HttpStatusHandler implements IHander
                 return $handler->handle($object->getContent());
             }
         }
+        HttpContext::get()->getResponse()->flush();
         
         return $object;
     }
