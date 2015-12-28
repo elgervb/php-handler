@@ -12,6 +12,10 @@ class HttpStatus
     const STATUS_201_CREATED = 201;
 
     const STATUS_204_NO_CONTENT = 204;
+    
+    const STATUS_301_MOVED_PERMANENTLY = 301;
+    
+    const STATUS_302_FOUND= 302;
 
     const STATUS_401_UNAUTHORIZED = 401;
 

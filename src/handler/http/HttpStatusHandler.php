@@ -72,7 +72,7 @@ class HttpStatusHandler implements IHander
     {
         HttpContext::get()
             ->getResponse()
-            ->redirect($object->getContent());
+            ->redirect($object->getContent()); // the url
         
         return $object;
     }
