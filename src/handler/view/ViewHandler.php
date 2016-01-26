@@ -23,7 +23,7 @@ class ViewHandler implements IHander
         $responce = HttpContext::get()->getResponse();
         $responce->setStatusCode(200);
         $responce->setContentType('text/html');
-        $responce->getWriter()->write(is_string($object) ? $object : $object->render());
+        $responce->write(is_string($object) ? $object : $object->render());
         $responce->flush();
         
         return $object;
