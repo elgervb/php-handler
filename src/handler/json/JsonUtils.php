@@ -104,12 +104,15 @@ class JsonUtils
      */
     public static function fileToModel(\SplFileInfo $aFile)
     {
+       
         $model = new \stdClass();
         $model->{'filename'} = $aFile->getFilename();
         $model->{'extension'} = $aFile->getExtension();
-        $model->{'last_modified'} = $aFile->getMTime();
-        $model->{'size'} = $aFile->getSize();
-        $model->{'type'} = $aFile->getType();
+        if ($aFile->isReadable()) {
+            $model->{'last_modified'} = $aFile->getMTime();
+            $model->{'size'} = $aFile->getSize();
+            $model->{'type'} = $aFile->getType();
+        }
         $model->{'path'} = $aFile->getPathname();
         return $model;
     }
