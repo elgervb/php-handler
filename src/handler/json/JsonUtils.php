@@ -106,14 +106,17 @@ class JsonUtils
     {
        
         $model = new \stdClass();
-        $model->{'filename'} = $aFile->getFilename();
+        $model->{'dir'} = $aFile->isDir();
         $model->{'extension'} = $aFile->getExtension();
+        $model->{'filename'} = $aFile->getFilename();
+        $model->{'path'} = str_replace('\\', '/',$aFile->getPathname());
+        
         if ($aFile->isReadable()) {
             $model->{'last_modified'} = $aFile->getMTime();
             $model->{'size'} = $aFile->getSize();
             $model->{'type'} = $aFile->getType();
         }
-        $model->{'path'} = $aFile->getPathname();
+        
         return $model;
     }
 }
