@@ -104,7 +104,9 @@ class JsonUtils
      */
     public static function fileToModel(\SplFileInfo $aFile)
     {
-       
+        if ($aFile->getFilename() === '.' || $aFile->getFilename() === '..') {
+            return;
+        }
         $model = new \stdClass();
         $model->{'dir'} = $aFile->isDir();
         $model->{'extension'} = $aFile->getExtension();
