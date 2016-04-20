@@ -86,6 +86,9 @@ class JsonUtils
         $result = array();
         foreach ($aIterator as $item) {
             if ($item instanceof \SplFileInfo) {
+                if ($item->getFilename() === '.' || $item->getFilename() === '..') {
+                    continue;   
+                }
                 $result[] = JsonUtils::fileToModel($item);
             } else {
                 $result[] = $item;
@@ -98,15 +101,12 @@ class JsonUtils
     /**
      * Converts a SplFileInfo to a Model
      *
-     * @param \SplFileInfo $aFile            
+     * @param \SplFileInfo $aFile
      *
      * @return Model
      */
     public static function fileToModel(\SplFileInfo $aFile)
     {
-        if ($aFile->getFilename() === '.' || $aFile->getFilename() === '..') {
-            return;
-        }
         $model = new \stdClass();
         $model->{'dir'} = $aFile->isDir();
         $model->{'extension'} = $aFile->getExtension();
