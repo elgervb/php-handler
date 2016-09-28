@@ -65,7 +65,7 @@ class HttpStatus
     /**
      * Returns the extra http headers to add to the response
      * 
-     * @return array
+     * @return array or null when not set
      */
     public function getExtraHeaders()
     {
