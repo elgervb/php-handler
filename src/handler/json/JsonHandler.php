@@ -16,7 +16,7 @@ class JsonHandler implements IHander
      */
     public function accept($object)
     {
-        return $object instanceof Json;
+        return $object instanceof Json || is_array($object);
     }
     
     /*
@@ -27,17 +27,8 @@ class JsonHandler implements IHander
     {
         /* @var $object \handler\json\Json */
         $result = null;
-        
-        $object = $object->getObject();
-        if (is_object($object)) {
-            if ($object instanceof \IteratorAggregate) {
-                /* @var $object \IteratorAggregate */
-                $result = JsonUtils::encodeIterator($object->getIterator());
-            } elseif ($object instanceof \Iterator) {
-                $result = JsonUtils::encodeIterator($object);
-            } else {
-                $result = JsonUtils::encode($object);
-            }
+        if ($object instanceof Json) {
+        	$result = $this->handleJson($object);
         } else {
             if (is_array($object)) {
                 $result = JsonUtils::encode($object);
@@ -54,5 +45,23 @@ class JsonHandler implements IHander
         }
         
         return $result;
+    }
+    
+    private function handleJson(Json $object) {
+    	$object = $object->getObject();
+    	$result = null;
+    	
+    	if (is_object($object)) {
+    		if ($object instanceof \IteratorAggregate) {
+    			/* @var $object \IteratorAggregate */
+    			$result = JsonUtils::encodeIterator($object->getIterator());
+    		} elseif ($object instanceof \Iterator) {
+    			$result = JsonUtils::encodeIterator($object);
+    		} else {
+    			$result = JsonUtils::encode($object);
+    		}
+    	}
+    	
+    	return $result;
     }
 }
