@@ -60,6 +60,8 @@ class JsonHandler implements IHander
     		} else {
     			$result = JsonUtils::encode($object);
     		}
+    	} else if (is_array($object)) {
+    	    $result = JsonUtils::encode($object);
     	}
     	
     	return $result;
