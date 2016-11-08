@@ -48,7 +48,10 @@ class JsonHandler implements IHander
     }
     
     private function handleJson(Json $object) {
-    	$object = $object->getObject();
+        // check if the json has an internal object, else serialize itself
+        if ($object->getObject()) {
+            $object = $object->getObject();
+        }
     	$result = null;
     	
     	if (is_object($object)) {
