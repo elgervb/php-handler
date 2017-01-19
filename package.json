@@ -7,9 +7,11 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "./vendor/phpunit/phpunit/phpunit -c ./phpunit.xml",
-    "test:coverage": "gulp test --coverage",
-    "watch": "npm test && gulp test:watch"
+    "test": "./vendor/phpunit/phpunit/phpunit --configuration phpunit.xml",
+    "test:coverage": "$npm_package_scripts_test --coverage-text",
+    "watch": "npm test && gulp test:watch",
+    "start": "php -S localhost:4000 -t src/ -c php.ini src/router.php",
+    "postinstall": "composer install --no-interaction --prefer-source"
   },
   "repository": {
     "type": "git",
